@@ -1,0 +1,40 @@
+def output(/Users/CH484-mac1/Desktop/plotly/test2/smashing/templates/project/test1.xls, sheet, list1, list2, x, y, z):
+    book = xlwt.Workbook()
+    sh = book.add_sheet(sheet)
+    variables = [x, y, z]
+    x_desc = 'Display'
+    y_desc = 'Dominance'
+    z_desc = 'Test'
+    desc = [x_desc, y_desc, z_desc]
+
+    col1_name = 'Stimulus Time'
+    col2_name = 'Reaction Time'
+
+    #You may need to group the variables together
+    #for n, (v_desc, v) in enumerate(zip(desc, variables)):
+    for n, v_desc, v in enumerate(zip(desc, variables)):
+        sh.write(n, 0, v_desc)
+        sh.write(n, 1, v)
+    n+=1
+    sh.write(n, 0, col1_name)
+    sh.write(n, 1, col2_name)
+    for m, e1 in enumerate(list1, n+1):
+        sh.write(m, 0, e1)
+    for m, e2 in enumerate(list2, n+1):
+        sh.write(m, 1, e2)
+    book.save(/Users/CH484-mac1/Desktop/plotly/test2/smashing/templates/project/test1.xls)
+
+from pandas import DataFrame
+Guard_Number1 = [1]
+Check_Point_Number1 = [12]
+Guard_Reached_Approval = ['Yes']
+Next_Checkpoint_Number1 = [13]
+df = DataFrame({'Guard No.': Guard_Number1, 'Check Point No.': Check_Point_Number1, 'Guard Reached': Guard_Reached_Approval,'Next Checkpoint No.': Next_Checkpoint_Number1})
+df
+df.to_excel('/Users/CH484-mac1/Desktop/plotly/test2/smashing/templates/project/spreadsheet1.xls', sheet_name='sheet1', index=False)
+
+
+  send_event('Checkpoint1',   { current: s.cell('A',1) })
+  send_event('GuardReached1',   { current: s.cell('A',1) })
+  send_event('NextCheckpoint1',   { current: s.cell('A',1) })
+end

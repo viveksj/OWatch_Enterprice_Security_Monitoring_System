@@ -1,0 +1,5 @@
+Current Checkpoint
+Guard Identifier
+Timestamp
+Guard Reached
+Next Checkpoint
